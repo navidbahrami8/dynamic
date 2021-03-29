@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Storage done</h1>
+<div mat-dialog-content>
+  Profile of my favorite person is:
+  <ul>
+    <li>
+      <span *ngIf="data.name">&#10003;</span> {{name}}{{tell}}
+    </li>
+    <li>
+      <span *ngIf="data.family">&#10003;</span> {{family}}{{email}}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,17 @@
+<div id="dynamicContainer">
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>SelectYears</mat-label>
+      <mat-select (selectionChange)="assignComponent($event)">
+        <mat-option [value]=""></mat-option>
+        <mat-option *ngFor="let year of years" [value]="year.value">
+          {{ year.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="years">
+    <!--Create container for Dynamic Components -->
+    <ng-container #dynamicContainer></ng-container>
+  </div>
+</div>

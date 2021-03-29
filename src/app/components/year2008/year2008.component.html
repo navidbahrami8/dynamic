@@ -1,0 +1,20 @@
+<div class="yaers">
+  <form  [formGroup]="carrentForm" (ngSubmit)="openDialog()" class="example-form">
+    <div class="row">
+      <mat-form-field class="example-full-width">
+        <mat-label>name</mat-label>
+        <input  formControlName="name" matInput placeholder="Ex. navid">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="example-full-width">
+        <mat-label>family</mat-label>
+        <input  formControlName="family" matInput placeholder="Ex. bahrami">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <button type="submit"  class="but" mat-raised-button color="primary">save</button>
+    </div>
+  </form>
+</div>
+

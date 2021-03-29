@@ -1,0 +1,20 @@
+<div class="yaers">
+  <form [formGroup]="carrentForm" (ngSubmit)="openDialog()" class="example-form">
+    <div class="row">
+      <mat-form-field class="example-full-width">
+        <mat-label>tell</mat-label>
+        <input formControlName="tell" matInput placeholder="Ex. 935 936 1801">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field class="example-full-width">
+        <mat-label>mail</mat-label>
+        <input  formControlName="email"  matInput placeholder="Ex. email@gmail.com">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <button type="submit" class="but" mat-raised-button color="primary">save</button>
+    </div>
+  </form>
+</div>
+
