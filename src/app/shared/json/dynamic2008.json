@@ -1,0 +1,26 @@
+[
+  {
+    "ID":"firstName",
+    "Label":"first name",
+    "Type":"input",
+    "Value":""
+  },
+  {
+    "ID":"lastName",
+    "Label":"last name",
+    "Type":"input",
+    "Value":""
+  },
+  {
+    "ID":"tell",
+    "Label":"tell",
+    "Type":"number",
+    "Value":""
+  },
+  {
+    "ID":"address",
+    "Label":"address",
+    "Type":"select",
+    "Value":"tehran,esfehan,"
+  }
+]
