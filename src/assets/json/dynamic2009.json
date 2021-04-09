@@ -1,0 +1,20 @@
+[
+  {
+    "key":"yes",
+    "label":"yes",
+    "type":"checkbox",
+    "value":""
+  },
+  {
+    "key":"no",
+    "label":"no",
+    "type":"checkbox",
+    "value":""
+  },
+  {
+    "key":"Description",
+    "label":"Description",
+    "type":"text",
+    "value":""
+  }
+]

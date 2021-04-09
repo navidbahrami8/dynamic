@@ -9,9 +9,29 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <button (click)="getD2008()">2008</button>
+    <button (click)="getD2009()">2009</button>
   </div>
   <div class="years">
     <!--Create container for Dynamic Components -->
     <ng-container #dynamicContainer></ng-container>
+    <!--Create container for Dynamic form -->
   </div>
 </div>
+<form [formGroup]="myform">
+  <div
+    class="wrapper"
+    formArrayName="dynamic"
+
+  >
+    <div *ngFor="let dynamic of dynamicData">
+      <div class="controls">
+        <app-input
+          formControlName="dynamic.key"
+          [placeholder]="dynamic.label"
+          [type]="dynamic.type"
+        ></app-input>
+      </div>
+    </div>
+  </div>
+</form>

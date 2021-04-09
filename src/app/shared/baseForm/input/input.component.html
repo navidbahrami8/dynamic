@@ -1,0 +1,12 @@
+<div class="icon-container" [ngClass]="{ 'has-error': hasError }">
+</div>
+<input
+  #input
+  tabindex="0"
+  (input)="change($event)"
+  [type]="type"
+  [placeholder]="placeholder"
+  autocomplete="off"
+  [ngClass]="{ 'has-error': hasError }"
+/>
+<!-- (blur)="onTouched() -->
