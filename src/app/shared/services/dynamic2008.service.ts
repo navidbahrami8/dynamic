@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Dynamic } from '../interFace/dynamic';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,6 @@ export class Dynamic2008Service {
   constructor(private http: HttpClient) {}
 
   getData() {
-    return this.http.get<any>(this.configUrl);
+    return this.http.get<Dynamic>(this.configUrl);
   }
 }

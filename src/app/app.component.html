@@ -9,8 +9,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button (click)="getD2008()">2008</button>
-    <button (click)="getD2009()">2009</button>
   </div>
   <div class="years">
     <!--Create container for Dynamic Components -->
@@ -19,19 +17,22 @@
   </div>
 </div>
 <form [formGroup]="myform">
-  <div
-    class="wrapper"
-    formArrayName="dynamic"
-
-  >
-    <div *ngFor="let dynamic of dynamicData">
-      <div class="controls">
-        <app-input
-          formControlName="dynamic.key"
-          [placeholder]="dynamic.label"
-          [type]="dynamic.type"
-        ></app-input>
+  <div class="wrapper" formArrayName="dynamic">
+    <ng-template
+      *ngFor="let ctrl of childDynamic.controls ; let i = index"
+    >
+      <div [formGroupName]="i">
+        <div class="controls">
+          <ng-container *ngFor="let dynamic of dynamicData">
+            <app-input
+              ngDefaultControl
+              [formControlName]="dynamic.key"
+              [placeholder]="dynamic.label"
+              [type]="dynamic.type"
+            ></app-input>
+          </ng-container>
+        </div>
       </div>
-    </div>
+    </ng-template>
   </div>
 </form>

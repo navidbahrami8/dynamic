@@ -9,6 +9,7 @@ import {
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { YersComponent } from './components/year2008/year2008.component';
 import { YersComponent2009 } from './components/year2009/year2009.component';
+import { Dynamic } from './shared/interFace/dynamic';
 import { year } from './shared/interFace/year';
 import { Dynamic2008Service } from './shared/services/dynamic2008.service';
 import { Dynamic2009Service } from './shared/services/dynamic2009.service';
@@ -22,13 +23,16 @@ export class AppComponent implements OnInit {
   title = 'dynamicProject';
   myform: FormGroup;
   // dynamicForm
-  dynamicData : any[] = [];
+  dynamicData: Dynamic;
   // dynamicComponent
   @ViewChild('dynamicContainer', { read: ViewContainerRef })
   container: ViewContainerRef;
+
   years: year[] = [
-    { value: '2008', viewValue: '2008' },
-    { value: '2009', viewValue: '2009' },
+    { value: '2008', viewValue: '2008component' },
+    { value: '2009', viewValue: '2009component' },
+    { value: '2008form', viewValue: '2008form' },
+    { value: '2009form', viewValue: '2009form' },
   ];
 
   constructor(
@@ -46,7 +50,7 @@ export class AppComponent implements OnInit {
 
   initform() {
     this.myform = this.fb.group({
-      dynamic: new FormArray([]),
+      dynamic: this.fb.array([]),
     });
   }
 
@@ -56,25 +60,10 @@ export class AppComponent implements OnInit {
   }
 
   addchildDynamic() {
-    let jsonArray = this.dynamicData;
-    this.childDynamic.push(this.fb.group(jsonArray));
+    this.childDynamic.push(this.fb.group(this.dynamicData));
   }
 
-  //get service for 2008
-  getD2008() {
-    this.Dd2008.getData().subscribe((data) => {
-      this.dynamicData = data;
-      console.log(this.dynamicData, ' data ');
-    });
-  }
-    //get service for 2009
-    getD2009() {
-      this.Dd2009.getData().subscribe((data) => {
-        this.dynamicData = data;
-        console.log(this.dynamicData, ' data ');
-      });
-    }
-  //creat dynamic component
+  //create dynamic component
   assignComponent(component) {
     if (component.value == 2008) {
       let comp = this.comFacResolver.resolveComponentFactory(YersComponent);
@@ -85,6 +74,18 @@ export class AppComponent implements OnInit {
       let comp = this.comFacResolver.resolveComponentFactory(YersComponent2009);
       let dynamicComp = this.container.createComponent(comp);
       return dynamicComp;
+    }
+    //get service for 2008form
+    if (component.value == '2008form') {
+      this.Dd2008.getData().subscribe((data) => {
+        this.dynamicData = data;
+      });
+    }
+    //get service for 2009form
+    if (component.value == '2009form') {
+      this.Dd2009.getData().subscribe((data) => {
+        this.dynamicData = data;
+      });
     }
   }
 }
